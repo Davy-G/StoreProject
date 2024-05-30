@@ -1,5 +1,14 @@
-bin/
-obj/
+src/Presentation/bin
+src/Presentation/obj
+src/Application/bin
+src/Application/obj
+src/Domain/bin
+src/Domain/obj
+src/Infrastructure/bin
+src/Infrastructure/obj
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
+.idea
+.git
+.gitignore
