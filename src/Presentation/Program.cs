@@ -1,7 +1,13 @@
+using Infrastructure.Db;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services
+    .AddDbContext<StoreDbContext>(o => o
+        .UseSqlite("Data Source=C:/Users/Coding/Documents/Programming/C# NEW/ProjectProductShop/dbo/store.db"));
 
 var app = builder.Build();
 
