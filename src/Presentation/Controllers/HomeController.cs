@@ -8,18 +8,10 @@ namespace Presentation.Controllers;
 public class HomeController(IMediator mediator) : ControllerBase
 {
 
-    public IActionResult Index()
+    public async Task<IActionResult>Index()
     {
-        //TODO register mediator services
-        var request = mediator.Send(new GetProductsOnSale());
-        
-        
+        var request = await mediator.Send(new GetProductsOnSale());
         return Ok(request);
-    }
-
-    public IActionResult Privacy()
-    {
-        return Ok();
     }
     
 }

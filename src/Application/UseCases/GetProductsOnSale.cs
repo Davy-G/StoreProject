@@ -2,7 +2,6 @@ using Application.Interfaces;
 using Domain.Entities;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using IMediator = MediatR.IMediator;
 
 namespace Application.UseCases;
 
