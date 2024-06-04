@@ -1,6 +1,6 @@
 namespace Domain.Entities;
 
-public class Users
+public class User
 {
     public int Id { get; set; }
     public string Name { get; set; } = default!;
@@ -8,6 +8,6 @@ public class Users
     public string UserName { get; set; } = default!;
     public string HashedPassword { get; set; } = default!;
     public string RegisterDate { get; set; } = default!;
-    public byte[] Image { get; set; } = default!;
+    public byte[]? Image { get; set; } = default!;
     
 }
