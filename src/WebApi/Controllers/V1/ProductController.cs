@@ -6,13 +6,10 @@ namespace WebApi.Controllers.v1;
 
 public class ProductController(IMediator mediator) : ApiController
 {
-
-    public IActionResult Index()
+    [HttpGet("sale")]
+    public async Task<IActionResult> Index()
     {
-        //TODO register mediator services
-        var request = mediator.Send(new GetProductsOnSale());
-        
-        
+        var request = await mediator.Send(new GetProductsOnSale());
         return Ok(request);
     }
 
@@ -20,5 +17,4 @@ public class ProductController(IMediator mediator) : ApiController
     {
         return Ok();
     }
-    
 }
