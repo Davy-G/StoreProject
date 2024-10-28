@@ -1,11 +1,10 @@
-using System.Diagnostics;
 using Application.UseCases;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Presentation.Controllers;
+namespace WebApi.Controllers.v1;
 
-public class HomeController(IMediator mediator) : ControllerBase
+public class ProductController(IMediator mediator) : ApiController
 {
 
     public IActionResult Index()

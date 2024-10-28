@@ -1,14 +1,19 @@
 using Infrastructure.Db;
 using Microsoft.EntityFrameworkCore;
-using System.IO;
-var builder = WebApplication.CreateBuilder(args);
+using dotenv.net;
+using MediatR;
 
+
+DotEnv.Load();
+var env = DotEnv.Read();
+
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<IMediator>(o => o.GetRequiredService<IMediator>());
 builder.Services
     .AddDbContext<StoreDbContext>(o => o
-        .UseSqlite("Data Source=../../dbo/store.db"));
-
+        .UseSqlite(env["DB__PATH"]));
 
 
 var app = builder.Build();
@@ -32,6 +37,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();
