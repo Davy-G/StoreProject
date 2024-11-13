@@ -7,14 +7,16 @@ namespace WebApi.Controllers.v1;
 public class ProductController(IMediator mediator) : ApiController
 {
     [HttpGet("sale")]
-    public async Task<IActionResult> Index()
+    public async Task<IActionResult> Sale()
     {
         var request = await mediator.Send(new GetProductsOnSale());
         return Ok(request);
     }
 
-    public IActionResult Privacy()
+    [HttpGet("/name/{name}")]
+    public async Task<IActionResult> Sale(string name)
     {
-        return Ok();
+        var request = await mediator.Send(new GetProductsByName(name));
+        return Ok(request);
     }
 }
