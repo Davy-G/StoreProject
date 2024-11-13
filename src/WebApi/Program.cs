@@ -1,11 +1,14 @@
-using Infrastructure.Db;
-using Microsoft.EntityFrameworkCore;
 using dotenv.net;
+using Infrastructure.Db;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 
-
-DotEnv.Load();
-var env = DotEnv.Read();
+var solutionDir = Directory.GetParent(Directory.GetCurrentDirectory())?.Parent;
+DotEnv.Fluent()
+    .WithTrimValues()
+    .WithEnvFiles($"{solutionDir}/.env")
+    .WithOverwriteExistingVars()
+    .Load();
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -13,7 +16,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<IMediator>(o => o.GetRequiredService<IMediator>());
 builder.Services
     .AddDbContext<StoreDbContext>(o => o
-        .UseSqlite(env["DB__PATH"]));
+        .UseSqlite(Environment.GetEnvironmentVariable("DB__PATH")));
 
 
 var app = builder.Build();
@@ -36,7 +39,7 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Product}/{action=Index}/{id?}");
+    "default",
+    "{controller=Product}/{action=Index}/{id?}");
 
 app.Run();

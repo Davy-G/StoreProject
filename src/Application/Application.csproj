@@ -15,4 +15,10 @@
       <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.3" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="Products\Commands\"/>
+        <Folder Include="Users\Commands\"/>
+        <Folder Include="Users\Queries\"/>
+    </ItemGroup>
+
 </Project>

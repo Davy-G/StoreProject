@@ -1,13 +1,12 @@
 namespace Domain.Entities;
 
-public class User
+public sealed record User
 {
-    public int Id { get; set; }
-    public string Name { get; set; } = default!;
-    public string Surname { get; set; } = default!;
-    public string UserName { get; set; } = default!;
-    public string HashedPassword { get; set; } = default!;
-    public string RegisterDate { get; set; } = default!;
-    public byte[]? Image { get; set; } = default!;
-    
+    public int Id { get; init; }
+    public string Name { get; init; } = default!;
+    public string Surname { get; init; } = default!;
+    public string UserName { get; init; } = default!;
+    public string HashedPassword { get; init; } = default!;
+    public string RegisterDate { get; init; } = default!;
+    public byte[]? Image { get; init; }
 }
