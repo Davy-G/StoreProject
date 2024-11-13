@@ -8,5 +8,8 @@ public sealed record User
     public string UserName { get; init; } = default!;
     public string HashedPassword { get; init; } = default!;
     public string RegisterDate { get; init; } = default!;
+    public string Email { get; init; } = default!;
+    public string Address { get; init; } = default!;
+    public List<Order>? Orders { get; set; } = default!;
     public byte[]? Image { get; init; }
 }
