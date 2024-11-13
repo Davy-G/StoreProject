@@ -1,10 +1,10 @@
 namespace Domain.Entities;
 
-public class Order
+public sealed record Order
 {
     public int Id { get; set; }
     public User User { get; set; } = default!;
     public List<Product> Product { get; set; } = default!;
-    public DateOnly Date { get; set; }
-    
+    public DateOnly DateCreated { get; set; }
+    public DateOnly DateFinished { get; set; }
 }

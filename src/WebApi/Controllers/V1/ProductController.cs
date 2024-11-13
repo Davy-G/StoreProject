@@ -1,4 +1,4 @@
-using Application.UseCases;
+using Application.Products.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
